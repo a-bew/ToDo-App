@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import ToDo from './toDo';
 
 const Layout = (props) => (
   <div>
@@ -9,7 +8,6 @@ const Layout = (props) => (
     </Head>
     { props.children}
 
-    <ToDo />
   </div>
 )
 
