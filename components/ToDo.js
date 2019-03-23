@@ -10,8 +10,6 @@ class ToDo extends Component {
     super(props);
     this.state = {
       term: '',
-      count : count++,
-//      dummyTerm: { id: this.state.count, term: term },
       items: []
     };
   }
@@ -32,14 +30,11 @@ class ToDo extends Component {
     items.forEach(object => {
 
       if (object.id == id){
-
-        console.log(id)
         object.getname = item;
         object.isChecked = isChecked;
         object.setColor = done
       }
     });
-    console.log(items)
     this.setState({items:items})
  }
   onSubmit = (event) => {
