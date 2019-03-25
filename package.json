@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon feature/adetola_bewaji/add-express-server/server.js",
+    "dev": "nodemon server/Index.js",
     "build": "next build",
-    "start": "NODE_ENV=production node feature/adetola_bewaji/add-express-server/server.js"
+    "start": "NODE_ENV=production node server/index.js"
   },
   "keywords": [],
   "author": "",
