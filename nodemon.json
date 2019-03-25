@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "ignore": ["node_modules", ".next"],
+  "watch": ["feature/adetola_bewaji/add-express-server/**/*", "server.js"],
+  "ext": "js json"
+}
