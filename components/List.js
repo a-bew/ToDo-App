@@ -3,13 +3,6 @@ import Layout from './Layout';
 import PropTypes from 'prop-types';
 
 class List extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false,
-      current: ""
-    }
-  }
 
   handleChange =(event)=>{
       const id = event.target.parentNode.id;
@@ -25,7 +18,6 @@ class List extends Component{
     }
 
   deleteItem = (item, index) => {
-    console.log(item)
     this.props.onDelete(item);
 
   }
@@ -38,8 +30,9 @@ class List extends Component{
            <div>
            <li className="mark-label" key="mark-label">Mark as Done<a className="delete" href='#' >remove item</a></li>
               <ul className=" list-group list-group-flush">
+
                 {
-                  this.props.items.map((item, index)   => <li id={item.id} className={item.setColor+" list-group-item"} key={index}><input type="checkbox" name = { item.id+`checkbox` } value={item} className="check" onChange = {this.handleChange} key={index} checked= {item.isChecked}/>{item.term}<a className="delete" role="button"  href='#' onClick= {this.deleteItem.bind(this, item.id) }>Delete</a></li>)
+                     Array.from(this.props.items).map((item, index)   => <li id={item.id} className={item.setColor+" list-group-item"} key={index}><input type="checkbox" name = { item.id+`checkbox` } value={item} className="check" onChange = {this.handleChange} key={index} checked= {item.isChecked}/>{item.term}<a className="delete" role="button"  href='#' onClick= {this.deleteItem.bind(this, item.id) }>Delete</a></li>)
                 }
               </ul>
 
