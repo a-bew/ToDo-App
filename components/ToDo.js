@@ -3,17 +3,22 @@ import List from './List';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
 
-let  count = 0
 class ToDo extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      term: '',
-      items: []
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   term: '',
+  //   //   items: []
+  //   // };
+  //   //this.getInitialProps("http://localhost:3000/api/made");
+  // }
 
+  componentWillMount(){
+    this.setState({
+      items: this.props.items
+    })
+  }
   onDelete = (id) => {
     let items = this.state.items;
     let index = items.findIndex(x => x.id === id);
@@ -62,13 +67,12 @@ class ToDo extends Component {
          <List  items={this.state.items} onDelete={this.onDelete} checkBox = {this.checkBox} />
        </div>
 
-
         <style jsx>{`
         .task{
             margin-top: 20px 0;
           }
           .marginbuttom{
-            margin: 10px 0;
+            margin: 10px 0 10px 0 ;
           }
 
 
@@ -87,8 +91,9 @@ class ToDo extends Component {
   }
 }
 
-ToDo.propTypes = {
-  checkBox: PropTypes.func.isRequired,
-}
+
+// ToDo.propTypes = {
+//   checkBox: PropTypes.func.isRequired,
+// }
 
 export default ToDo;
