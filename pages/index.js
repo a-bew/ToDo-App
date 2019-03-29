@@ -16,24 +16,29 @@ class Index extends Component{
     <Layout>
 
       <div className = "row">
-       <div className="width card">
+       <div className="width">
          <header className="card-body">
            <h1 className="card-title">To Do List</h1>
            <p className="card-text">A Quick to-do app with task completion color checker </p>
            <h6>Created by <a href="#">Adetola Bewaji</a></h6><span>Date: 22/03/2019</span>
+
          </header>
+
          <ToDo items={ this.props.items } />
-        </div>
         <style jsx>{`
+
           h6{
-            left: 5px;
+            left: 0px;
             float:left;
+            font-size: 10px;
           }
 
           span{
             right: 5px;
             float:right;
             cursor:pointer;
+            font-size: 10px;
+
           }
 
             #img{
@@ -69,6 +74,8 @@ class Index extends Component{
 
 
         `}</style>
+        </div>
+
       </div>
 
 
