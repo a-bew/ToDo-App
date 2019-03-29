@@ -14,14 +14,11 @@ class List extends Component{
         done = "done"
       }
       this.props.checkBox(id, item, isChecked, done);
-//      this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
     }
 
   deleteItem = (item, index) => {
     this.props.onDelete(item);
-
   }
-
 
   render() {
       return (
@@ -30,9 +27,12 @@ class List extends Component{
            <div>
            <li className="mark-label" key="mark-label">Mark as Done<a className="delete" href='#' >remove item</a></li>
               <ul className=" list-group list-group-flush">
-
                 {
-                     Array.from(this.props.items).map((item, index)   => <li id={item.id} className={item.setColor+" list-group-item"} key={index}><input type="checkbox" name = { item.id+`checkbox` } value={item} className="check" onChange = {this.handleChange} key={index} checked= {item.isChecked}/>{item.term}<a className="delete" role="button"  href='#' onClick= {this.deleteItem.bind(this, item.id) }>Delete</a></li>)
+                     Array.from(this.props.items).map((item, index)   => 
+                     <li id={item.id} className={item.setColor+" list-group-item"} key={index}>
+                        <input type="checkbox" name = { item.id+`checkbox` } value={item} className="check" onChange = {this.handleChange} key={index} checked= {item.isChecked}/><span>{item.term}</span>
+                        <a className="delete" role="button"  href='#' onClick= {this.deleteItem.bind(this, item.id) }>Delete</a>
+                      </li>)
                 }
               </ul>
 
@@ -46,14 +46,23 @@ class List extends Component{
               }
 
               li a{
+                
                 right: 5px;
-                float:right;
                 cursor:pointer;
                 top: 10px;
               }
 
               input.check{
-                margin: 10px;
+                float: left;
+                width: 10%;
+                box-sizing: border-box;
+                margin: 5px;
+              }
+
+              span{
+                float: left;
+                box-sizing: border-box;
+                width: 70%;
               }
 
               li.mark-label{
@@ -65,11 +74,12 @@ class List extends Component{
                 zoom: 1.5;
               }
 
-              ul li a.delete {
-                  display: inline-block;
-                  position: absolute;
-                  margin: 10px;
-              }
+              li a.delete {
+                  display: inline;
+                  float:right;
+                  box-sizing: border-box;
+                  margin: 5px 5px 0 0;
+  }
 
               ul li.done{
                 background-color: #e3ff00;
